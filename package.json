@@ -1,0 +1,13 @@
+{
+  "name": "gcp-vpc-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sample GCP VPC inventory service: Express API + static dashboard",
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "node --test backend/app.test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

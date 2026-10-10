@@ -1,0 +1,21 @@
+{
+  "vpcs": [
+    { "id": "vpc-1", "name": "prod-network", "project": "acme-prod", "routingMode": "GLOBAL", "autoCreateSubnets": false, "createdAt": "2025-01-14T09:30:00Z" },
+    { "id": "vpc-2", "name": "staging-network", "project": "acme-staging", "routingMode": "REGIONAL", "autoCreateSubnets": false, "createdAt": "2025-03-02T14:05:00Z" },
+    { "id": "vpc-3", "name": "shared-services", "project": "acme-shared", "routingMode": "GLOBAL", "autoCreateSubnets": false, "createdAt": "2025-05-21T08:00:00Z" }
+  ],
+  "subnets": [
+    { "id": "sn-1", "vpcId": "vpc-1", "name": "prod-web-us-central1", "region": "us-central1", "cidr": "10.10.0.0/20", "privateGoogleAccess": true },
+    { "id": "sn-2", "vpcId": "vpc-1", "name": "prod-db-us-central1", "region": "us-central1", "cidr": "10.10.16.0/22", "privateGoogleAccess": true },
+    { "id": "sn-3", "vpcId": "vpc-1", "name": "prod-web-europe-west1", "region": "europe-west1", "cidr": "10.20.0.0/20", "privateGoogleAccess": false },
+    { "id": "sn-4", "vpcId": "vpc-2", "name": "stg-app-us-east1", "region": "us-east1", "cidr": "10.30.0.0/22", "privateGoogleAccess": false },
+    { "id": "sn-5", "vpcId": "vpc-3", "name": "shared-tools-us-central1", "region": "us-central1", "cidr": "10.40.0.0/24", "privateGoogleAccess": true }
+  ],
+  "firewallRules": [
+    { "id": "fw-1", "vpcId": "vpc-1", "name": "allow-https-web", "direction": "INGRESS", "action": "ALLOW", "protocol": "tcp", "ports": "443", "sourceRanges": ["0.0.0.0/0"], "priority": 1000 },
+    { "id": "fw-2", "vpcId": "vpc-1", "name": "allow-db-from-web", "direction": "INGRESS", "action": "ALLOW", "protocol": "tcp", "ports": "5432", "sourceRanges": ["10.10.0.0/20"], "priority": 900 },
+    { "id": "fw-3", "vpcId": "vpc-1", "name": "deny-all-ingress", "direction": "INGRESS", "action": "DENY", "protocol": "all", "ports": "", "sourceRanges": ["0.0.0.0/0"], "priority": 65534 },
+    { "id": "fw-4", "vpcId": "vpc-2", "name": "allow-ssh-office", "direction": "INGRESS", "action": "ALLOW", "protocol": "tcp", "ports": "22", "sourceRanges": ["203.0.113.0/24"], "priority": 1000 },
+    { "id": "fw-5", "vpcId": "vpc-3", "name": "allow-internal", "direction": "INGRESS", "action": "ALLOW", "protocol": "all", "ports": "", "sourceRanges": ["10.0.0.0/8"], "priority": 1000 }
+  ]
+}

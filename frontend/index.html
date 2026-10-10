@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GCP VPC Service</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>GCP VPC Service</h1><div id="summary"></div></header>
+  <main>
+    <section>
+      <h2>VPC networks</h2>
+      <table id="vpcs"><thead><tr><th>Name</th><th>Project</th><th>Routing</th><th>Created</th><th></th></tr></thead><tbody></tbody></table>
+      <form id="vpc-form">
+        <input name="name" placeholder="name" required>
+        <input name="project" placeholder="project" required>
+        <select name="routingMode"><option>GLOBAL</option><option>REGIONAL</option></select>
+        <button>Add VPC</button>
+      </form>
+    </section>
+    <section>
+      <h2 id="detail-title">Select a VPC</h2>
+      <h3>Subnets</h3>
+      <table id="subnets"><thead><tr><th>Name</th><th>Region</th><th>CIDR</th><th>Private access</th></tr></thead><tbody></tbody></table>
+      <h3>Firewall rules</h3>
+      <table id="rules"><thead><tr><th>Name</th><th>Direction</th><th>Action</th><th>Protocol:Ports</th><th>Sources</th><th>Priority</th></tr></thead><tbody></tbody></table>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
