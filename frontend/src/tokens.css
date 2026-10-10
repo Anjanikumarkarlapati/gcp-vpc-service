@@ -1,0 +1,107 @@
+/*
+  Colour tokens — "Sharp edge" palette for the VPC Service Controls console.
+  Source swatches: #898989 grey · #D9D9D9 light grey · #FF4D4D red · #4DFFBC mint.
+  Meaning comes from the PRD/ARCHITECTURE: red = DENIED / violation,
+  mint = ALLOWED / enforced, amber = DRY-RUN, blue = info, greys = structure.
+  Components use only these tokens; never hard-code a hex value.
+  Docs: docs/color-palette.md
+*/
+
+:root {
+  /* Raw palette (do not use directly in components) */
+  --p-grey-500: #898989;
+  --p-grey-200: #d9d9d9;
+  --p-red-500: #ff4d4d;
+  --p-mint-500: #4dffbc;
+  --p-ink: #1a1a1a;
+
+  /* Surfaces */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f5f5f5;
+  --inverse: #1a1a1a;
+  --on-inverse: #ffffff;
+
+  /* Text */
+  --text: #1a1a1a;
+  --text-muted: #595959;
+  --text-disabled: #898989;
+
+  /* Lines */
+  --border: #d9d9d9;
+  --border-strong: #767676; /* inputs, 4.5:1 on white */
+  --focus: #1a1a1a;
+
+  /* Accent / actions */
+  --accent: #1a1a1a;
+  --on-accent: #ffffff;
+  --accent-hover: #333333;
+
+  /* Status: denied / violation */
+  --critical: #c41e1e; /* text + icons on light surfaces, 5.9:1 */
+  --critical-fill: #ff4d4d; /* brand red, bars + badges, ink text on top */
+  --critical-bg: #fdecec;
+  --on-critical-fill: #1a1a1a; /* 5.3:1 on --critical-fill */
+
+  /* Status: allowed / enforced */
+  --good: #00704c; /* text + icons, 6.1:1 */
+  --good-fill: #4dffbc; /* brand mint, ink text on top (13.5:1) */
+  --good-bg: #e6fff5;
+  --on-good-fill: #1a1a1a;
+
+  /* Status: dry-run / needs review */
+  --warning: #8a5a00; /* 5.9:1 */
+  --warning-fill: #f2b84b;
+  --warning-bg: #fff4dc;
+  --on-warning-fill: #1a1a1a;
+
+  /* Status: info */
+  --info: #2f6fa3; /* 5.4:1 */
+  --info-fill: #7db4e6;
+  --info-bg: #e8f1f9;
+
+  /* Decorative only: charts, hero shapes. Never behind text. */
+  --block-1: #898989;
+  --block-2: #d9d9d9;
+  --block-3: #ff4d4d;
+  --block-4: #4dffbc;
+}
+
+:root[data-theme="dark"] {
+  --bg: #141414;
+  --surface: #1e1e1e;
+  --surface-2: #272727;
+  --inverse: #ededed;
+  --on-inverse: #141414;
+
+  --text: #ededed;
+  --text-muted: #a8a8a8;
+  --text-disabled: #6b6b6b;
+
+  --border: #333333;
+  --border-strong: #898989;
+  --focus: #ededed;
+
+  --accent: #ededed;
+  --on-accent: #141414;
+  --accent-hover: #ffffff;
+
+  --critical: #ff4d4d;
+  --critical-fill: #ff4d4d;
+  --critical-bg: #2e1717;
+  --on-critical-fill: #141414;
+
+  --good: #4dffbc;
+  --good-fill: #4dffbc;
+  --good-bg: #12291f;
+  --on-good-fill: #141414;
+
+  --warning: #f2b84b;
+  --warning-fill: #f2b84b;
+  --warning-bg: #2c2412;
+  --on-warning-fill: #141414;
+
+  --info: #7db4e6;
+  --info-fill: #7db4e6;
+  --info-bg: #17232e;
+}
